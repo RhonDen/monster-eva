@@ -1,0 +1,25 @@
+.sync-meter { display: grid; gap: 0.45rem; width: 100%; }
+.sync-meter__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-nav);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--silver);
+}
+.sync-meter__row strong {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--p-accent, var(--accent));
+}
+.sync-meter__bar { height: 6px; background: rgba(255, 255, 255, 0.12); overflow: hidden; }
+.sync-meter__fill {
+  display: block;
+  height: 100%;
+  transform-origin: left center;
+  background: linear-gradient(90deg, var(--p-accent, var(--accent)), var(--accent-2, var(--purple)));
+}

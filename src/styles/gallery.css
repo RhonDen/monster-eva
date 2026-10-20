@@ -1,0 +1,21 @@
+.gallery { background: #050608; padding-bottom: 0; }
+.gallery__hint { margin-top: 0.75rem; font-size: 0.85rem; color: var(--silver); }
+
+.gallery__stage {
+  position: relative;
+  width: 100%;
+  height: min(85vh, 820px);
+  min-height: 560px;
+  border-top: 1px solid var(--line);
+}
+
+.gallery__empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  color: var(--silver);
+}
+.gallery__empty code { color: var(--green-hi); }

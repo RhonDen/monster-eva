@@ -1,0 +1,89 @@
+.pilots { background: var(--black); }
+.pilots .label { color: var(--green); }
+.pilots__note { margin-top: 0.75rem; font-size: 0.85rem; color: var(--silver); max-width: 36rem; }
+
+.pilots__list { display: grid; gap: clamp(3.5rem, 8vw, 7rem); }
+
+.pilot-row {
+  --p-accent: var(--green);
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+}
+.pilot-row--flip { grid-template-columns: 340px 1fr; }
+.pilot-row--flip .eva-slot { order: -1; }
+
+.pilot--shinji { --p-accent: #3ad204; }
+.pilot--asuka  { --p-accent: #ff4b3a; }
+.pilot--rei    { --p-accent: #e8c547; }
+
+/* ---- Pilot profile card ---- */
+.pilot {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  overflow: hidden;
+}
+.pilot__portrait {
+  position: relative;
+  min-height: 420px;
+  background: radial-gradient(circle at 50% 75%, color-mix(in srgb, var(--p-accent) 32%, transparent), transparent 68%);
+}
+.pilot__portrait img {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  translate: -50% 0;
+  height: 96%;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.7));
+  /* soft fade where the cutout is cropped */
+  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+}
+.pilot__body { padding: clamp(1.25rem, 2.5vw, 2.25rem); align-self: center; }
+.pilot .label { color: var(--p-accent); }
+.pilot__name { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.3rem); margin: 0.4rem 0 0.9rem; }
+.pilot__text { color: var(--silver); }
+.pilot__meta { display: flex; flex-wrap: wrap; gap: 1.25rem 2.5rem; margin: 1.25rem 0; }
+.pilot__meta dt { font-family: var(--font-nav); font-size: 0.65rem; letter-spacing: 0.2em; color: var(--silver); }
+.pilot__meta dd { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--p-accent); max-width: 18rem; }
+.pilot__quote { border-left: 2px solid var(--p-accent); padding-left: 1rem; font-style: italic; }
+
+/* ---- EVA card (inside ReflectiveCard) ---- */
+.eva-slot { min-height: 470px; display: grid; place-items: center; }
+.eva { display: flex; flex-direction: column; flex: 1; min-height: 0; gap: 0.9rem; }
+.eva__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-nav);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+}
+.eva__code { color: var(--p-accent); }
+.eva__status { display: inline-flex; align-items: center; gap: 0.5rem; color: rgba(244, 244, 245, 0.65); }
+.eva__status i { width: 6px; height: 6px; border-radius: 50%; background: var(--p-accent); animation: pulse 2s infinite; }
+.eva__img {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.eva__name { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; line-height: 1.1; }
+.eva__role { margin-top: 0.2rem; font-family: var(--font-nav); font-size: 0.7rem; letter-spacing: 0.16em; color: rgba(244, 244, 245, 0.6); }
+
+@media (max-width: 900px) {
+  .pilot-row, .pilot-row--flip { grid-template-columns: 1fr; }
+  .pilot-row--flip .eva-slot { order: 0; }
+  .pilot { grid-template-columns: 1fr; }
+  .pilot__portrait { min-height: 340px; }
+  .eva-slot { width: 100%; max-width: 380px; margin-inline: auto; }
+}
+
+.eva .sync-meter__row { color: rgba(244, 244, 245, 0.65); }

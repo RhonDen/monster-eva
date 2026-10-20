@@ -1,0 +1,11 @@
+.footer { background: #040405; border-top: 1px solid var(--line); padding: 3rem 0 2rem; }
+.footer__inner { display: grid; gap: 1.25rem; justify-items: center; text-align: center; }
+.footer__brand { display: flex; align-items: center; gap: 1.25rem; }
+.footer__brand img { height: 36px; width: auto; object-fit: contain; }
+.footer__brand span { color: var(--silver); }
+.footer__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; }
+.footer__links a { font-family: var(--font-nav); font-size: 0.72rem; letter-spacing: 0.18em; color: var(--silver); }
+.footer__links a:hover { color: var(--green); }
+.footer .label { color: var(--orange); }
+.footer__disclaimer { max-width: 44rem; font-size: 0.8rem; color: #8a9199; }
+.footer__copy { font-size: 0.75rem; color: #6b727a; }

@@ -1,0 +1,84 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-h) + 2rem) 0 3rem;
+  background: var(--black);
+  overflow: hidden;
+}
+
+/* Layers: chrome (back) -> dark shade -> content */
+.hero__bg { position: absolute; inset: 0; z-index: -2; }
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(7, 8, 10, 0.9) 0%, rgba(7, 8, 10, 0.55) 48%, rgba(7, 8, 10, 0.3) 100%),
+    linear-gradient(180deg, transparent 65%, var(--black) 100%);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2rem;
+}
+.hero__copy { min-width: 0; }
+
+/* Three TechText canvases stacked as the title */
+.hero__title { display: grid; margin: 0.75rem 0 1.25rem; font-weight: 400; }
+.hero__tech { height: clamp(84px, 9.5vw, 128px); color: var(--white); }
+.hero__tech--green { color: var(--green); }
+
+.hero__lead { max-width: 30rem; margin-bottom: 2rem; color: var(--silver); font-size: 1.05rem; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+
+.hero__sys {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-nav);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--silver);
+}
+.hero__sys div { display: flex; gap: 0.6rem; }
+.hero__sys dd { font-weight: 600; }
+.hero .meter { max-width: 22rem; --accent: var(--green); --accent-2: var(--green-hi); }
+
+/* Logo lockup: tweak --logo-w and --logo-gap to taste */
+.hero__visual { display: grid; place-items: center; gap: 1.25rem; }
+.lockup {
+  --logo-w: clamp(120px, 19vw, 250px);
+  --logo-gap: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--logo-gap);
+  filter: drop-shadow(0 0 36px rgba(58, 210, 4, 0.35));
+  animation: float 7s ease-in-out infinite;
+}
+.lockup__logo { width: var(--logo-w); height: auto; object-fit: contain; }
+.lockup__x {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1;
+  color: var(--green-hi);
+}
+.lockup__caption {
+  font-family: var(--font-nav);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--silver);
+}
+
+@media (max-width: 820px) {
+  .hero { min-height: auto; }
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__tech { height: clamp(72px, 20vw, 110px); }
+  .lockup { --logo-w: clamp(110px, 34vw, 200px); }
+}

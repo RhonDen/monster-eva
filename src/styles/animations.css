@@ -1,0 +1,24 @@
+@keyframes fill { from { width: 0; } }
+@keyframes blink { 50% { opacity: 0.35; } }
+@keyframes pulse { 50% { opacity: 0.4; transform: scale(0.85); } }
+@keyframes float { 50% { transform: translateY(-12px); } }
+
+@keyframes enterText {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes drift {
+  from { transform: translateY(0); opacity: 0; }
+  20%  { opacity: 0.8; }
+  to   { transform: translateY(-120px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
